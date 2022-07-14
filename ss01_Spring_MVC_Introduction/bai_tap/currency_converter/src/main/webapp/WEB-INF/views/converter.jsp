@@ -17,10 +17,10 @@
 <form action="/convert" method="post">
 
     <label class="form-label">Rate</label>
-    <label><input type="text" name="rate" value="22000"></label><br>
+    <label><input type="number" name="rate" value="22000"></label><br>
 
     <label class="form-label">USD</label>
-    <label><input type="text" name="usd" value="1"></label><br>
+    <label><input type="number" name="usd" value="1"></label><br>
 
     <button type="submit" class="btn btn-primary ms-5">Submit</button>
     <h2>Result: ${vnd} VND.</h2>

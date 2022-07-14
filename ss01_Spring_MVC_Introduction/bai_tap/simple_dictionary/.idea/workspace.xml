@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01405873-b4e2-4016-b437-4c67708f3ac1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simple_dictionary/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simple_dictionary/controller/DictionaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/simple_dictionary/service/impl/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simple_dictionary/service/impl/DictionaryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss02_Spring_Controller/bai_tap/spice_sandwich/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss02_Spring_Controller/bai_tap/spice_sandwich/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss02_Spring_Controller/bai_tap/spice_sandwich/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,6 +192,9 @@
       <workItem from="1657718970578" duration="200000" />
       <workItem from="1657761697850" duration="239000" />
       <workItem from="1657761957296" duration="143000" />
+      <workItem from="1657781924861" duration="131000" />
+      <workItem from="1657782080924" duration="305000" />
+      <workItem from="1657782548418" duration="248000" />
     </task>
     <servers />
   </component>
