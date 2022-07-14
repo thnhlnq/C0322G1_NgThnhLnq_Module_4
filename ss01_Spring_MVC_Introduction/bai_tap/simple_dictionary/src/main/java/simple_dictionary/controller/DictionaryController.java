@@ -23,7 +23,6 @@ public class DictionaryController {
     public String simpleDictionary(@RequestParam String word, Model model) {
         String result = dictionaryService.dictionary(word);
         model.addAttribute("result", result);
-        model.addAttribute("word", word);
         return "translate";
     }
 }

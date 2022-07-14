@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01405873-b4e2-4016-b437-4c67708f3ac1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../currency_converter/src/main/java/currency_converter/controller/ConverterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../currency_converter/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_converter/src/main/java/currency_converter/controller/ConverterServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simple_dictionary/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simple_dictionary/controller/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/simple_dictionary/service/impl/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/simple_dictionary/service/impl/DictionaryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +34,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="simple_dictionary" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -193,6 +192,9 @@
       <workItem from="1657706437042" duration="149000" />
       <workItem from="1657706610406" duration="591000" />
       <workItem from="1657707350535" duration="388000" />
+      <workItem from="1657718970578" duration="200000" />
+      <workItem from="1657761697850" duration="239000" />
+      <workItem from="1657761957296" duration="143000" />
     </task>
     <servers />
   </component>

@@ -13,6 +13,7 @@ public class DictionaryService implements IDictionaryService {
 
     @Override
     public String dictionary(String word) {
+
         String search = dictionaryRepository.dictionary().get(word);
 
         if (search != null) {
