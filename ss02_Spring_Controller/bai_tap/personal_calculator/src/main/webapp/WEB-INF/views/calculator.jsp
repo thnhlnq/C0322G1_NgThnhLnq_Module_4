@@ -5,6 +5,7 @@
   Time: 10:40 SA
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,22 +20,22 @@
         <table>
             <tr>
                 <td>First Operand:</td>
-                <td><input name="firstOperand" type="text"/></td>
+                <td><input name="firstOperand" type="text" required value="${firstOperand}"/></td>
             </tr>
             <tr>
                 <td>Operator:</td>
                 <td>
                     <select name="operator">
-                        <option value="+">Addition (+)</option>
-                        <option value="-">Subtraction (-)</option>
-                        <option value="*">Multiplication (*)</option>
-                        <option value="/">Division (/)</option>
+                        <option <c:if test="${operator == '+'}"> selected </c:if> value="+">Addition (+)</option>
+                        <option <c:if test="${operator == '-'}"> selected </c:if> value="-">Subtraction (-)</option>
+                        <option <c:if test="${operator == '*'}"> selected </c:if> value="*">Multiplication (*)</option>
+                        <option <c:if test="${operator == '/'}"> selected </c:if> value="/">Division (/)</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>Second Operand:</td>
-                <td><input name="secondOperand" type="text"/></td>
+                <td><input name="secondOperand" type="text" required value="${secondOperand}"/></td>
             </tr>
             <tr>
                 <td></td>

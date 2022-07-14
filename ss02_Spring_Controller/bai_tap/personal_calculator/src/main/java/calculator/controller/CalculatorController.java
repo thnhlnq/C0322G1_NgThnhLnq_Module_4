@@ -20,8 +20,11 @@ public class CalculatorController {
     }
 
     @PostMapping("/calculator")
-    public String calculator(@RequestParam float firstOperand, float secondOperand, char operator, Model model) {
+    public String calculator(@RequestParam float firstOperand, float secondOperand, String operator, Model model) {
         String result = calculatorService.checkOperand(firstOperand, secondOperand, operator);
+        model.addAttribute("firstOperand", firstOperand);
+        model.addAttribute("secondOperand", secondOperand);
+        model.addAttribute("operator", operator);
         model.addAttribute("result", result);
         return "calculator";
     }
