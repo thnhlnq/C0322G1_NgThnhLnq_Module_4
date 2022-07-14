@@ -22,6 +22,8 @@ public class ConverterController {
     @PostMapping("/convert")
     public String currencyConvert(@RequestParam(defaultValue = "23000") float rate, @RequestParam(defaultValue = "1") float usd, Model model) {
         double vnd = convertService.currencyConvert(rate, usd);
+        model.addAttribute("rate", rate);
+        model.addAttribute("usd", usd);
         model.addAttribute("vnd", vnd);
         return "converter";
     }
