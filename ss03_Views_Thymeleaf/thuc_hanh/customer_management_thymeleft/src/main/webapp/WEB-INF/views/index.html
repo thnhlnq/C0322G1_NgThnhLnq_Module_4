@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <head th:replace="/layout :: head"></head>
+<body>
+
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+
+<td><a th:href="@{/customer/{id}/edit(id=${row.getId()})}">edit</a></td>
+
+<td><a th:href="@{/customer/{id}/delete(id=${row.getId()})}">delete</a></td>
+
+<td><a th:href="@{/customer/{id}/view(id=${row.getId()})}">view</a></td>
+
+<a th:href="@{/customer}">
+    Back to customer list
+</a>
+
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
