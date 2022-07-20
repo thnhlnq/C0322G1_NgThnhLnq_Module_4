@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface IProductService {
 
-    List<Product> products();
+    List<Product> findAll();
 
     void save(Product product);
 
-    Product findById(int id);
+    Product findById(Integer id);
 
-    void edit(int id, Product product);
+    void edit(Integer id, Product product);
 
-    void delete(int id);
+    void delete(Product product);
 
     List<Product> search(String nameSearch);
 }
