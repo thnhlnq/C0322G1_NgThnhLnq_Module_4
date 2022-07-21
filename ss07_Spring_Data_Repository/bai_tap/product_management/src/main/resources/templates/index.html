@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="container">
+
+<div th:if="${success}">
+    <span style="color: red" th:text="${success}"></span>
+</div>
+
+<div>
+    <form th:action="@{/search}">
+        <input type="text" name="nameFind">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<a class="btn btn-outline-secondary" th:href="@{/create}" th:value="Create">Create</a>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Producer</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr th:each="row : ${products}">
+        <td th:text="${row.getId()}"></td>
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getPrice()}"></td>
+        <td th:text="${row.getDescription()}"></td>
+        <td th:text="${row.getProducer()}"></td>
+        <td><a th:href="@{/edit(id=${row.getId()})}">
+            <button class="btn btn-outline-secondary" value="Edit">Edit</button>
+        </a></td>
+        <td>
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onclick="infoDelete(this.value)" th:value="${row.id} + ',' + ${row.name}">Delete
+            </button>
+        </td>
+    </tr>
+</table>
+
+<div>
+    <a th:href="@{'/'(page=${products.number -1})}" th:if="${products.hasPrevious()}" class="btn btn-outline-secondary me-3">Previous</a>
+    <span th:text="${products.number + 1}"></span> /
+    <span th:text="${products.totalPages}"></span>
+    <a th:href="@{'/'(page = ${products.number + 1})}" th:if="${products.hasNext()}" class="btn btn-outline-secondary ms-3">Next</a>
+</div>
+
+<form th:action="@{delete}" method="get">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are You Sure ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" hidden id="idDelete" name="id">
+                    <span>Delete</span>
+                    <span id="nameDelete"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-outline-secondary" value="Save changes">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function infoDelete(name) {
+        let str = name.split(",")
+        document.getElementById("idDelete").value = str[0];
+        document.getElementById("nameDelete").innerText = str[1];
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
