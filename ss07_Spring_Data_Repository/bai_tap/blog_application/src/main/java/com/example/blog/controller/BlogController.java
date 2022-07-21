@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-
 @Controller
 public class BlogController {
 
@@ -69,8 +67,8 @@ public class BlogController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam String nameFind, Model model) {
-        Page<Blog> search = blogService.findByName(nameFind);
+    public String search(@RequestParam String nameFind, @PageableDefault(value = 5) Pageable pageable, Model model) {
+        Page<Blog> search = blogService.findByName(nameFind, pageable);
         model.addAttribute("blogs", search);
         return "list";
     }

@@ -37,5 +37,5 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
     void delete(@Param("id") Integer id);
 
     @Query(value = "select * from blog where name like :nameFind", nativeQuery = true)
-    List<Blog> findByNameContaining(@Param("nameFind") String nameFind);
+    Page<Blog> findByNameContaining(@Param("nameFind") String nameFind, Pageable pageable);
 }
