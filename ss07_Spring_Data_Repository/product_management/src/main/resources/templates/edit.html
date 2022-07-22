@@ -8,25 +8,26 @@
 </head>
 <body class="container">
 
-<form th:action="@{/edit}" th:object="${products}" method="POST">
+<form th:action="@{/edit}" th:object="${products}" method="POST" class="container">
     <table>
         <tr>
-            <td><input readonly th:fields="*{id}"/></td>
+            <td><label class="form-control">Id</label></td>
+            <td><input class="form-control" readonly th:field="*{id}"/></td>
         </tr>
         <tr>
-            <td><label>Name</label></td>
+            <td><label class="form-control">Name</label></td>
             <td><input type="text" class="form-control" required th:field="*{name}"/></td>
         </tr>
         <tr>
-            <td><label>Price</label></td>
+            <td><label class="form-control">Price</label></td>
             <td><input type="text" class="form-control" required th:field="*{price}"/></td>
         </tr>
         <tr>
-            <td><label>Description</label></td>
+            <td><label class="form-control">Description</label></td>
             <td><input type="text" class="form-control" required th:field="*{description}"/></td>
         </tr>
         <tr>
-            <td><label>Producer</label></td>
+            <td><label class="form-control">Producer</label></td>
             <td><input type="text" class="form-control" required th:field="*{producer}"/></td>
         </tr>
         <tr>
