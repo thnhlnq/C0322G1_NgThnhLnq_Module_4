@@ -22,13 +22,7 @@ public class BlogController {
     IBlogService blogService;
 
     @GetMapping("/")
-    public String showList(Model model) {
-        model.addAttribute("blogs", blogService.findAll());
-        return "list";
-    }
-
-    @GetMapping("/")
-    public String showBlog(Model model, @PageableDefault(value = 5, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String showBlog(Model model, @PageableDefault(value = 2, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("blogs", blogService.findAll(pageable));
         return "list";
     }

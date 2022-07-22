@@ -9,14 +9,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Transactional
 public interface IProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "select * from product", nativeQuery = true)
-    Page<Product> findAllPage(Pageable pageable);
+    Page<Product> findAll(Pageable pageable);
 
     @Modifying
     @Query(value = "insert into product (name, price, description, producer) values (:name, :price, :description, :producer)", nativeQuery = true)
@@ -33,7 +32,6 @@ public interface IProductRepository extends JpaRepository<Product, Integer> {
     @Query(value = "delete from product where id = :id", nativeQuery = true)
     void delete(@Param("id") Integer id);
 
-    @Modifying
     @Query(value = "select * from product where name like :nameFind", nativeQuery = true)
-    List<Product> findByName(@Param("nameFind") String nameFind);
+    Page<Product> findByName(@Param("nameFind") String nameFind, Pageable pageable);
 }

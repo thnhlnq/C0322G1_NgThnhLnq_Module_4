@@ -3,6 +3,7 @@ package com.example.product_management.controller;
 import com.example.product_management.model.Product;
 import com.example.product_management.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-
 @Controller
 public class ProductController {
 
@@ -23,7 +22,7 @@ public class ProductController {
     IProductService productService;
 
     @GetMapping("/")
-    public String showPage(Model model, @PageableDefault(value = 5, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String showPage(Model model, @PageableDefault(value = 2, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("products", productService.findAll(pageable));
         return "index";
     }
@@ -62,8 +61,8 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public String search(@RequestParam String nameFind, Model model) {
-        List<Product> search = productService.findByName(nameFind);
+    public String search(@RequestParam String nameFind, @PageableDefault(value = 5) Pageable pageable, Model model) {
+        Page<Product> search = productService.findByName(nameFind, pageable);
         model.addAttribute("products", search);
         return "index";
     }

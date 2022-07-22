@@ -4,7 +4,6 @@ import com.example.product_management.model.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface IProductService {
@@ -19,5 +18,5 @@ public interface IProductService {
 
     void delete(Integer id);
 
-    List<Product> findByName(String nameFind);
+    Page<Product> findByName(String nameFind, Pageable pageable);
 }
