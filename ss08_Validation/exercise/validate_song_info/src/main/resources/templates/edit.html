@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>Edit Info Song</h3>
-<form th:action="@{/edit}" th:object="${songs}" method="POST" class="container">
+<form th:action="@{/edit}" th:object="${song}" method="POST" class="container">
     <table>
         <tr>
             <td><input type="hidden" th:field="*{id}"/></td>
