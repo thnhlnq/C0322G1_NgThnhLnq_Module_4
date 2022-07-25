@@ -7,19 +7,22 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<form th:action="@{/create}" th:object="${songs}" method="POST" class="container">
+<form th:action="@{/create}" th:object="${songDto}" method="POST" class="container">
     <table>
         <tr>
             <th><label>Name Song</label></th>
             <td><input class="form-control" type="text" required th:field="*{nameSong}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></p>
         </tr>
         <tr>
             <th><label>Singer</label></th>
             <td><input class="form-control" type="text" required th:field="*{singer}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></p>
         </tr>
         <tr>
             <th><label>Kind Of Music</label></th>
             <td><input class="form-control" type="text" required th:field="*{kindOfMusic}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}"></p>
         </tr>
         <tr>
             <th><label>Path File Music</label></th>

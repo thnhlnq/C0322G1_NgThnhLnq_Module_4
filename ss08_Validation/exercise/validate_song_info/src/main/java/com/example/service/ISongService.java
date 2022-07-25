@@ -3,6 +3,7 @@ package com.example.service;
 import com.example.model.Song;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ISongService {
 
@@ -10,9 +11,9 @@ public interface ISongService {
 
     void save(Song song);
 
-    Song findById(int id);
+    Optional<Song> findById(Integer id);
 
     void edit(Song song);
 
-    void delete(int id);
+    void delete(Integer id);
 }

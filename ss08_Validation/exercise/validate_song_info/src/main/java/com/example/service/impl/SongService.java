@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SongService implements ISongService {
@@ -25,7 +26,7 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public Song findById(int id) {
+    public Optional<Song> findById(Integer id) {
         return songRepository.findById(id);
     }
 
@@ -35,7 +36,7 @@ public class SongService implements ISongService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Integer id) {
         songRepository.delete(id);
     }
 }

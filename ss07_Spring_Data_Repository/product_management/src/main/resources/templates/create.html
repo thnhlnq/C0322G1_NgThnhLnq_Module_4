@@ -8,23 +8,27 @@
 </head>
 <body class="container">
 
-<form th:action="@{/create}" th:object="${products}" method="POST" class="container">
+<form th:action="@{/create}" th:object="${productDto}" method="POST" class="container">
     <table>
         <tr>
             <th><label class="form-control">Name</label></th>
             <td><input class="form-control" type="text" required th:field="*{name}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
         </tr>
         <tr>
             <th><label class="form-control">Price</label></th>
             <td><input class="form-control" type="text" required th:field="*{price}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
         </tr>
         <tr>
             <th><label class="form-control">Description</label></th>
             <td><input class="form-control" type="text" required th:field="*{description}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
         </tr>
         <tr>
             <th><label class="form-control">Producer</label></th>
             <td><input class="form-control" type="text" required th:field="*{producer}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('producer')}" th:errors="*{producer}"></p>
         </tr>
         <tr>
             <td><input class="btn btn-outline-secondary" type="submit" value="Create"/></td>

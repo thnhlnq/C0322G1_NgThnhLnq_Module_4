@@ -15,19 +15,22 @@
         </tr>
         <tr>
             <td><label>Name Song</label></td>
-            <td><input class="form-control" type="text" required th:field="*{nameSong}"/></td>
+            <td><input class="form-control" type="text" th:field="*{nameSong}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></p>
         </tr>
         <tr>
             <td><label>Singer</label></td>
-            <td><input class="form-control" type="text" required th:field="*{singer}"/></td>
+            <td><input class="form-control" type="text" th:field="*{singer}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></p>
         </tr>
         <tr>
             <td><label>Kind Of Music</label></td>
-            <td><input class="form-control" type="text" required th:field="*{kindOfMusic}"/></td>
+            <td><input class="form-control" type="text" th:field="*{kindOfMusic}"/></td>
+            <p class="text-danger" th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}"></p>
         </tr>
         <tr>
             <td><label>Path File Music</label></td>
-            <td><input class="form-control" type="text" required th:field="*{pathFile}"/></td>
+            <td><input class="form-control" type="text" th:field="*{pathFile}"/></td>
         </tr>
         <tr>
             <td><input class="btn btn-outline-secondary" type="submit" value="Save Changes"/></td>

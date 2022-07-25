@@ -3,38 +3,42 @@ package com.example.dto;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class SongDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private int id;
-
+    @NotNull
+    @Size(max = 800)
     private String nameSong;
 
+    @NotNull
+    @Size(max = 300)
     private String singer;
 
+    @NotNull
+    @Size(max = 1000)
     private String kindOfMusic;
-
-    private String pathFile;
 
     public SongDto() {
     }
 
-    public SongDto(int id, String nameSong, String singer, String kindOfMusic, String pathFile) {
+    public SongDto(Integer id, String nameSong, String singer, String kindOfMusic) {
         this.id = id;
         this.nameSong = nameSong;
         this.singer = singer;
         this.kindOfMusic = kindOfMusic;
-        this.pathFile = pathFile;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -60,13 +64,5 @@ public class SongDto {
 
     public void setKindOfMusic(String kindOfMusic) {
         this.kindOfMusic = kindOfMusic;
-    }
-
-    public String getPathFile() {
-        return pathFile;
-    }
-
-    public void setPathFile(String pathFile) {
-        this.pathFile = pathFile;
     }
 }

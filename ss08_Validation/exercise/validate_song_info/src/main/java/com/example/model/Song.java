@@ -10,7 +10,7 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nameSong;
     private String singer;
     private String kindOfMusic;
@@ -19,7 +19,7 @@ public class Song {
     public Song() {
     }
 
-    public Song(int id, String nameSong, String singer, String kindOfMusic, String pathFile) {
+    public Song(Integer id, String nameSong, String singer, String kindOfMusic, String pathFile) {
         this.id = id;
         this.nameSong = nameSong;
         this.singer = singer;
@@ -27,11 +27,11 @@ public class Song {
         this.pathFile = pathFile;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
