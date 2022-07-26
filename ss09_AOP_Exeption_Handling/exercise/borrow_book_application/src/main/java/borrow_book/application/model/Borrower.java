@@ -1,7 +1,6 @@
 package borrow_book.application.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Borrower {
@@ -12,16 +11,18 @@ public class Borrower {
     private String name;
     private int codeBook;
 
-    @OneToMany(mappedBy = "borrower")
-    private List<Book> book;
+    @ManyToOne
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    private Book book;
 
     public Borrower() {
     }
 
-    public Borrower(int id, String name, int codeBook) {
+    public Borrower(int id, String name, int codeBook, Book book) {
         this.id = id;
         this.name = name;
         this.codeBook = codeBook;
+        this.book = book;
     }
 
     public int getId() {
@@ -46,5 +47,13 @@ public class Borrower {
 
     public void setCodeBook(int codeBook) {
         this.codeBook = codeBook;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }
