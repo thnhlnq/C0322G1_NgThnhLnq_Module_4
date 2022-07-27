@@ -48,14 +48,18 @@ public class Cart {
         }
     }
 
-    // thêm sản phẩm vào trong giỏ hàng.
-    public void removeProduct(Product product) {
+    // xoá sản phẩm trong giỏ hàng.
+    public void removeProduct(Product product) throws Exception {
         if (!checkItemInCart(product)) {
             products.put(product, 1);
         } else {
             Map.Entry<Product, Integer> itemEntry = selectItemInCart(product);
             Integer newQuantity = itemEntry.getValue() - 1;
             products.replace(itemEntry.getKey(), newQuantity);
+            if (newQuantity <= -1) {
+                products.replace(itemEntry.getKey(), 0);
+                throw new Exception();
+            }
         }
     }
 

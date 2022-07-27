@@ -8,9 +8,10 @@
 </head>
 <body class="container">
 <h1 style="text-align: center">Your Cart</h1>
-<form th:action="@{/shop}" th:object="${cart}" method="post" th:if="${cart != null || cart.getProducts().size() > 0}">
+<form th:action="@{/shop}" th:object="${cart}" method="get" th:if="${cart != null || cart.getProducts().size() > 0}">
     <table class="table table-striped table-hover">
         <tr>
+            <th></th>
             <th>Item</th>
             <th></th>
             <th>Description</th>
@@ -18,6 +19,13 @@
             <th>Price</th>
         </tr>
         <tr th:each="product: ${cart.products}">
+            <td>
+                <button type="button" class="btn btn-close" aria-label="Close" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        onclick="infoDelete(this.value)"
+                        th:value="${product.getKey().id} + ',' + ${product.getKey().name}">
+                </button>
+            </td>
             <td th:text="${product.getKey().name}"></td>
             <td><img th:src="@{${product.getKey().image}}"
                      width="50px" height="50px" alt="img"></td>
@@ -38,13 +46,47 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
             <td th:text="${cart.countTotalPayment()}"></td>
         </tr>
     </table>
 
-    <div class="alert alert-warning d-flex align-items-center" role="alert" th:if="${cart == null || cart.getProducts().size() == 0}">
+    <div class="alert alert-warning d-flex align-items-center" role="alert"
+         th:if="${cart == null || cart.getProducts().size() == 0}">
         <div>Cart Empty</div>
     </div>
+
+    <form th:action="@{/cart/delete}" method="get">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are You Sure ?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label><input type="text" hidden id="idDelete" name="id"></label>
+                        <span>Delete</span>
+                        <span id="nameDelete"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                        </button>
+                        <input type="submit" class="btn btn-outline-secondary" value="Delete">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function infoDelete(name) {
+            let str = name.split(",")
+            document.getElementById("idDelete").value = str[0];
+            document.getElementById("nameDelete").innerText = str[1];
+        }
+    </script>
 
     <h5>Total Items: <span th:text="${cart.countItemQuantity()}"></span></h5>
     <h5>Total Products: <span th:text="${cart.countProductQuantity()}"></span></h5>

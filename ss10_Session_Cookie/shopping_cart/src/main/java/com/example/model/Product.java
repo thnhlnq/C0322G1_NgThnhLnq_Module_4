@@ -1,9 +1,6 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +12,8 @@ public class Product {
     private String name;
     private String image;
     private double price;
+
+    @Column(columnDefinition = "LONGBLOB")
     private String description;
 
     public Product() {

@@ -5,6 +5,7 @@ import com.example.model.Product;
 import com.example.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,14 +25,17 @@ public class ProductController {
     }
 
     @GetMapping("/shop")
-    public ModelAndView showShop() {
-        ModelAndView modelAndView = new ModelAndView("/shop");
-        modelAndView.addObject("products", productService.findAll());
-        return modelAndView;
+    public ModelAndView showShop(Model model, @CookieValue(value = "productId", defaultValue = "-1") Long id) {
+//        ModelAndView modelAndView = new ModelAndView("/shop");
+//        modelAndView.addObject("products", productService.findAll());
+        if (id != -1) {
+            model.addAttribute("history", productService.findById(id).get());
+        }
+        return new ModelAndView ("shop", "products", productService.findAll());
     }
 
     @GetMapping("/add/{id}")
-    public String addToCart(@PathVariable Long id, @ModelAttribute Cart cart, @RequestParam("action") String action) {
+    public String addToCart(@PathVariable Long id, @SessionAttribute(name = "cart", required = false) Cart cart, @RequestParam("action") String action) {
         Optional<Product> productOptional = productService.findById(id);
         if (!productOptional.isPresent()) {
             return "/error.404";
@@ -45,7 +49,7 @@ public class ProductController {
     }
 
     @GetMapping("/remove/{id}")
-    public String removeToCart(@PathVariable Long id, @ModelAttribute Cart cart, @RequestParam("action") String action) {
+    public String removeToCart(@PathVariable Long id, @SessionAttribute(name = "cart", required = false) Cart cart, @RequestParam("action") String action) throws Exception {
         Optional<Product> productOptional = productService.findById(id);
         if (!productOptional.isPresent()) {
             return "/error.404";
@@ -56,5 +60,16 @@ public class ProductController {
         }
         cart.removeProduct(productOptional.get());
         return "redirect:/shop";
+    }
+
+    @GetMapping("cart/delete")
+    public String showDelete(@RequestParam Long id) {
+        productService.delete(id);
+        return "redirect:/cart";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String showError() {
+        return "error.404";
     }
 }
