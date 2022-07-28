@@ -35,7 +35,7 @@ public class ProductController {
     }
 
     @GetMapping("/add/{id}")
-    public String addToCart(@PathVariable Long id, @SessionAttribute(name = "cart", required = false) Cart cart, @RequestParam("action") String action) {
+    public String addToCart(@PathVariable Long id, @SessionAttribute(name = "cart") Cart cart, @RequestParam("action") String action) {
         Optional<Product> productOptional = productService.findById(id);
         if (!productOptional.isPresent()) {
             return "/error.404";
@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     @GetMapping("/remove/{id}")
-    public String removeToCart(@PathVariable Long id, @SessionAttribute(name = "cart", required = false) Cart cart, @RequestParam("action") String action) throws Exception {
+    public String removeToCart(@PathVariable Long id, @SessionAttribute(name = "cart") Cart cart, @RequestParam("action") String action) throws Exception {
         Optional<Product> productOptional = productService.findById(id);
         if (!productOptional.isPresent()) {
             return "/error.404";

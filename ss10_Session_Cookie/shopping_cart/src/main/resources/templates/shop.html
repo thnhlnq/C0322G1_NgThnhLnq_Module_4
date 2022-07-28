@@ -21,10 +21,8 @@
                 <div class="card-body">
                     <h5 class="card-text" th:text="${item.name}"></h5>
                     <h5 class="card-text" th:text="${#numbers.formatCurrency(item.price)} + ' $'"></h5>
-                    <a class="btn btn-outline-danger" id="toastbtn" th:href="@{/add/__${item.id}__(action='list')}">Add
-                        To Cart</a>
-                    <a class="btn btn-outline-danger" href="#" data-toggle="popover" th:title="${item.description}">Xem
-                        Chi Tiết</a>
+                    <a class="btn btn-outline-danger" id="toastbtn" th:href="@{/add/__${item.id}__(action='list')}">Add To Cart</a>
+                    <a class="btn btn-outline-danger" href="#" data-toggle="popover" th:title="${item.description}">Xem Chi Tiết</a>
                 </div>
             </div>
         </div>
