@@ -1,9 +1,6 @@
 package com.blog.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Blog {
@@ -12,15 +9,27 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    @Column(columnDefinition = "text")
     private String content;
+
+    @Column(columnDefinition = "date")
+    private String dayCreate;
+
+    //    @JsonManagedReference
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
 
     public Blog() {
     }
 
-    public Blog(Integer id, String name, String content) {
+    public Blog(Integer id, String name, String content, String dayCreate, Category category) {
         this.id = id;
         this.name = name;
         this.content = content;
+        this.dayCreate = dayCreate;
+        this.category = category;
     }
 
     public Integer getId() {
@@ -45,5 +54,21 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getDayCreate() {
+        return dayCreate;
+    }
+
+    public void setDayCreate(String dayCreate) {
+        this.dayCreate = dayCreate;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
