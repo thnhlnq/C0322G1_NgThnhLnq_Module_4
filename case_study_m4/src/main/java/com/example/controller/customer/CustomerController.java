@@ -32,15 +32,17 @@ public class CustomerController {
         return "customer/list";
     }
 
+//    @GetMapping("customer/create")
+//    public String showCreate(Model model) {
+//        model.addAttribute("customers", new Customer());
+//        model.addAttribute("customerTypes", customerTypeService.findAll());
+//        return "customer/create";
+//    }
+
     @GetMapping("customer/create")
-    public String showCreate(Model model) {
+    public String create(Model model, Customer customer, RedirectAttributes redirectAttributes) {
         model.addAttribute("customers", new Customer());
         model.addAttribute("customerTypes", customerTypeService.findAll());
-        return "customer/create";
-    }
-
-    @PostMapping("customer/create")
-    public String create(Customer customer, RedirectAttributes redirectAttributes) {
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("success", "Add Customer Success!");
         return "redirect:/customer";
