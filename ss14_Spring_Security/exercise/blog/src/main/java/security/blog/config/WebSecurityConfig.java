@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import security.blog.service.impl.MyUserDetailService;
 
 @Configuration
@@ -29,7 +31,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().formLogin().defaultSuccessUrl("/").permitAll()
-                .and().authorizeRequests().anyRequest().authenticated();
+        http.csrf()
+                .disable()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
+                .permitAll()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/login")
+                .permitAll()
+                .antMatchers("/")
+                .permitAll() // không cần xác thực
+                .antMatchers("/**")
+                .hasAnyRole("ADMIN")
+                // tất cả request gửi lên phải xác thực
+                .anyRequest()
+                .authenticated();
+
+        http.authorizeRequests()
+                .and()
+                .rememberMe()
+                .tokenRepository(persistentTokenRepository())
+                .tokenValiditySeconds(24 * 60 * 60);
+    }
+
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        InMemoryTokenRepositoryImpl memoryTokenRepository = new InMemoryTokenRepositoryImpl();
+        return memoryTokenRepository;
     }
 }
