@@ -197,24 +197,24 @@ VALUES ('Nguyễn Thị Hào', '1970-11-07', 0, 643431213, 0945423362, 'thihao07
        ('Trần Đại Danh', '1994-07-01', 1, 432341235, 0643343433, 'danhhai99@gmail.com', '24 Lý Thường Kiệt, Quảng Ngãi', 1),
        ('Nguyễn Tâm Đắc', '1989-07-01', 1, 344343432, 0987654321, 'dactam@gmail.com', '22 Ngô Quyền, Đà Nẵng', 2);
 
-INSERT INTO rent_type (rent_type_name)
+INSERT INTO rent_type (name)
 VALUES ('Year'),
        ('Month'),
        ('Day'),
        ('Hour');
 
-INSERT INTO facility_type (facility_type_name)
+INSERT INTO facility_type (name)
 VALUES ('Villa'),
        ('House'),
        ('Room');
 
-INSERT INTO facility (facility_name, facility_area, facility_cost, facility_max_people, standard_room, description_other_convenience, pool_area, number_of_floors, facility_free, rent_type_id, facility_type_id)
+INSERT INTO facility (name, area, cost, max_people, standard_room, description_other_convenience, pool_area, number_of_floor, facility_free, rent_type_id, facility_type_id)
 VALUES ('Villa Beach Front', 25000, 10000000, 10, 'vip', 'Có hồ bơi', 500, 4, 'facility_free', 3, 1),
-       ('House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', NULL, 3, 'facility_free', 2, 2),
-       ('Room Twin 01', 5000, 1000000, 2, 'normal', 'Có tivi', NULL, NULL, 'facility_free', 4, 3),
+       ('House Princess 01', 14000, 5000000, 7, 'vip', 'Có thêm bếp nướng', 300, 3, 'facility_free', 2, 2),
+       ('Room Twin 01', 5000, 1000000, 2, 'normal', 'Có tivi', 300, 3, 'facility_free', 4, 3),
        ('Villa No Beach Front', 22000, 9000000, 8, 'normal', 'Có hồ bơi', 300, 3, 'facility_free', 3, 1),
-       ('House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', NULL, 2, 'facility_free', 3, 2),
-       ('Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', NULL, NULL, 'facility_free', 4, 3);
+       ('House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', 400, 2, 'facility_free', 3, 2),
+       ('Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', 500, 5, 'facility_free', 4, 3);
 
 INSERT INTO attach_facility (attach_facility_name, attach_facility_cost, attach_facility_unit, attach_facility_status)
 VALUES ('Karaoke', 10000, 'giờ', 'tiện nghi, hiện tại'),

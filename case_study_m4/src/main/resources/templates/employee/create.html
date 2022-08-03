@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Nguyễn Thành Lonq</title>
@@ -68,10 +68,10 @@
                  alt="email" width="20" height="20">
             <span>&nbsp; reservation@furamavietnam.com</span>
         </div>
-        <div class="col-lg-3 text-end p-5 fw-bold text-success">Nguyễn Thành Lonq
-            <div class="avatar bg-success ms-2">
-                <div class="avatar_letters text-light">L
-                </div>
+        <div class="col-lg-3 text-end p-5 fw-bold text-success">
+            <div sec:authentication="principal.username"></div>
+            <div class="avatar ms-2">
+                <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="20px" height="20px"></a>
             </div>
         </div>
     </div>
@@ -93,11 +93,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/service">Service</a>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/service">All Service</a></li>
                                 <li><a class="dropdown-item" href="#">Villa</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">House</a></li>
-                                <li><hr class="dropdown-divider">
-                                </li>
                                 <li><a class="dropdown-item" href="#">Room</a></li>
                             </ul>
                         </li>
@@ -144,7 +142,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Id Card</span>
-                                <input type="date" class="form-control" required th:field="*{idCard}"
+                                <input type="text" class="form-control" required th:field="*{idCard}"
                                        placeholder="Enter Id Card Employee">
                             </div>
                         </td>

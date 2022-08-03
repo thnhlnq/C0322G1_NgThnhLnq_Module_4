@@ -1,5 +1,7 @@
 package com.example.model.employee;
 
+import com.example.model.user.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -140,7 +142,7 @@ public class Employee {
 //    public User getUser() {
 //        return user;
 //    }
-
+//
 //    public void setUser(User user) {
 //        this.user = user;
 //    }

@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
+
+@Transactional
 public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
 
     @Query(value = "select * from employee where name like :nameFind", nativeQuery = true)

@@ -93,7 +93,7 @@
                         <a class="nav-link text-light" href="/employee">Employee</a>
                         <a class="nav-link text-light" href="/customer">Customer</a>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="#"
+                            <a class="nav-link dropdown-toggle text-light" href="/service"
                                data-bs-toggle="dropdown">Service</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/service">All Service</a></li>
@@ -105,7 +105,7 @@
                         <a class="nav-link text-white" href="#">Contract</a>
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;"
-                          th:action="@{/customer/search}">
+                          th:action="@{/facility/search}">
                         <label><input class="form-control me-2" type="search" placeholder="Search"
                                       name="nameFind"></label>
                         <input class="btn bg-light text-success ms-1" type="submit" th:value="Search">
@@ -119,8 +119,8 @@
 <div class="container-fluid">
     <div class="col-lg-12 gradient-header">
         <div style="text-align: center">
-            <h3>List Customer</h3>
-            <a class="btn btn-outline-secondary" th:href="@{/customer/create}" th:value="Create">Create</a>
+            <h3>List Service</h3>
+            <a class="btn btn-outline-secondary" th:href="@{/service/create}" th:value="Create">Create</a>
         </div>
         <div style="text-align: end" th:if="${success}">
             <b style="color: red" th:text="${success}"></b>
@@ -129,32 +129,34 @@
             <tr>
                 <th>STT</th>
                 <th>Name</th>
-                <th>Date Of Birth</th>
-                <th>Gender</th>
-                <th>Id Card</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Type</th>
+                <th>Area</th>
+                <th>Cost</th>
+                <th>Max People</th>
+                <th>Standard Room</th>
+                <th>Description Other Convenience</th>
+                <th>Pool Area</th>
+                <th>Number Of Floor</th>
+                <th>Facility Free</th>
+                <th>Facility Type</th>
+                <th>Rent Type</th>
                 <th></th>
                 <th></th>
             </tr>
 
-            <tr th:each="row, number : ${customers}">
+            <tr th:each="row, number : ${facilities}">
                 <td th:text="${number.count}"></td>
                 <td th:text="${row.name}"></td>
-                <td th:text="${row.dateOfBirth}"></td>
-                <td th:switch="${row.gender}">
-                    <span th:case=0>Female</span>
-                    <span th:case=1>Male</span>
-                    <span th:case=2>Other Gender</span>
-                </td>
-                <td th:text="${row.idCard}"></td>
-                <td th:text="${row.phone}"></td>
-                <td th:text="${row.email}"></td>
-                <td th:text="${row.address}"></td>
-                <td th:text="${row.customerType.name}"></td>
-                <td><a class="btn btn-outline-secondary" th:href="@{/customer/edit(id=${row.id})}">Edit</a></td>
+                <td th:text="${row.area}"></td>
+                <td th:text="${row.cost}"></td>
+                <td th:text="${row.maxPeople}"></td>
+                <td th:text="${row.standardRoom}"></td>
+                <td th:text="${row.descriptionOtherConvenience}"></td>
+                <td th:text="${row.poolArea}"></td>
+                <td th:text="${row.numberOfFloor}"></td>
+                <td th:text="${row.facilityFree}"></td>
+                <td th:text="${row.facilityType.name}"></td>
+                <td th:text="${row.rentType.name}"></td>
+                <td><a class="btn btn-outline-secondary" th:href="@{/service/edit(id=${row.id})}">Edit</a></td>
                 <td>
                     <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
@@ -165,16 +167,16 @@
         </table>
 
         <div style="text-align: right">
-            <a th:href="@{'/customer'(page = ${customers.number - 1})}" th:if="${customers.hasPrevious()}"
+            <a th:href="@{'/service'(page = ${facilities.number - 1})}" th:if="${facilities.hasPrevious()}"
                class="btn btn-outline-secondary me-3">Previous</a>
-            <span th:text="${customers.number + 1}"></span> /
-            <span th:text="${customers.totalPages}"></span>
-            <a th:href="@{'/customer'(page = ${customers.number + 1})}" th:if="${customers.hasNext()}"
+            <span th:text="${facilities.number + 1}"></span> /
+            <span th:text="${facilities.totalPages}"></span>
+            <a th:href="@{'/service'(page = ${facilities.number + 1})}" th:if="${facilities.hasNext()}"
                class="btn btn-outline-secondary ms-3">Next</a>
         </div>
 
         <!--         Modal Delete-->
-        <form th:action="@{/customer/delete}" method="get">
+        <form th:action="@{/service/delete}" method="get">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog">
