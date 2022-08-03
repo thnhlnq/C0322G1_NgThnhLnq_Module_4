@@ -1,10 +1,7 @@
 package com.example.model.user;
 
-import com.example.model.employee.Employee;
-
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class User {
@@ -15,9 +12,6 @@ public class User {
     private String username;
     private String password;
     private boolean isEnabled;
-
-//    @OneToMany(mappedBy = "user")
-//    private Set<Employee> employee;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
@@ -67,14 +61,6 @@ public class User {
     public void setEnabled(boolean enabled) {
         isEnabled = enabled;
     }
-
-//    public Set<Employee> getEmployee() {
-//        return employee;
-//    }
-//
-//    public void setEmployee(Set<Employee> employee) {
-//        this.employee = employee;
-//    }
 
     public List<Role> getRoles() {
         return roles;

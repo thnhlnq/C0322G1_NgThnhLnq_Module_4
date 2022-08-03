@@ -1,7 +1,5 @@
 package com.example.model.employee;
 
-import com.example.model.user.User;
-
 import javax.persistence.*;
 
 @Entity
@@ -29,10 +27,6 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
-
-//    @ManyToOne
-//    @JoinColumn(name = "username", referencedColumnName = "username")
-//    private User user;
 
     public Employee() {
     }
@@ -138,12 +132,4 @@ public class Employee {
     public void setDivision(Division division) {
         this.division = division;
     }
-
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 }

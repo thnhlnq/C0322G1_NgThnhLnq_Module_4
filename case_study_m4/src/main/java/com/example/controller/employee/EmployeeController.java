@@ -33,16 +33,14 @@ public class EmployeeController {
     @Autowired
     IDivisionService divisionService;
 
-//    @Autowired
-//    IUserService userService;
-
     @GetMapping("/employee")
     public String showList(Model model, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("employees", employeeService.findAll(pageable));
         model.addAttribute("positions", positionService.findAll());
         model.addAttribute("educationDegrees", educationDegreeService.findAll());
         model.addAttribute("divisions", divisionService.findAll());
-//        model.addAttribute("users", userService.findAll());
+        model.addAttribute("employeeCreate", new Employee());
+
         return "employee/list";
     }
 
@@ -64,7 +62,7 @@ public class EmployeeController {
 
     @GetMapping("employee/edit")
     public String showEdit(@RequestParam int id, Model model) {
-        model.addAttribute("employees", employeeService.findById(id));
+        model.addAttribute("employeeEdit", employeeService.findById(id));
         model.addAttribute("positions", positionService.findAll());
         model.addAttribute("educationDegrees", educationDegreeService.findAll());
         model.addAttribute("divisions", divisionService.findAll());

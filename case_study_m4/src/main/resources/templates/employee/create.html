@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Nguyễn Thành Lonq</title>
     <link rel="shortcut icon" href="../1905504.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         [class*="col-"] {
             float: left;
@@ -51,8 +50,7 @@
 <div class="container-fluid">
     <div class="col-lg-12 gradient-header p-2 text-light bg-opacity-25">
         <div class="col-lg-3 px-5 py-2">
-            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" alt="Furama" width="75px"
-                 height="100px">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" alt="Furama" width="75px" height="100px">
         </div>
         <div class="col-lg-3 text-success py-3">
             <img src="https://cdn-icons-png.flaticon.com/512/4743/4743044.png" alt="map" width="20" height="20">
@@ -61,11 +59,9 @@
             <span>&nbsp; 7.0 km từ Sân bay Quốc tế Đà Nẵng</span>
         </div>
         <div class="col-lg-3 text-success py-4">
-            <img src="https://cdn-icons-png.flaticon.com/512/126/126509.png"
-                 alt="phone" width="20" height="20">
+            <img src="https://cdn-icons-png.flaticon.com/512/126/126509.png" alt="phone" width="20" height="20">
             <span>&nbsp; 84-236-3847 333/888 <br></span>
-            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
-                 alt="email" width="20" height="20">
+            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="email" width="20" height="20">
             <span>&nbsp; reservation@furamavietnam.com</span>
         </div>
         <div class="col-lg-3 text-end p-5 fw-bold text-success">
@@ -121,9 +117,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Name</span>
-                                <input style="width: 100%" type="text" class="form-control" required
-                                       th:field="*{name}"
-                                       placeholder="Enter Name Employee">
+                                <input style="width: 100%" type="text" class="form-control" required th:field="*{name}" placeholder="Enter Name Employee">
                             </div>
                         </td>
                     </tr>
@@ -132,8 +126,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Date Of Birth</span>
-                                <input type="date" class="form-control" required th:field="*{dateOfBirth}"
-                                       placeholder="Enter Date Of Birth Employee">
+                                <input type="date" class="form-control" required th:field="*{dateOfBirth}" placeholder="Enter Date Of Birth Employee">
                             </div>
                         </td>
                     </tr>
@@ -142,8 +135,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Id Card</span>
-                                <input type="text" class="form-control" required th:field="*{idCard}"
-                                       placeholder="Enter Id Card Employee">
+                                <input type="text" class="form-control" required th:field="*{idCard}" placeholder="Enter Id Card Employee">
                             </div>
                         </td>
                     </tr>
@@ -162,8 +154,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Phone</span>
-                                <input type="text" class="form-control" required th:field="*{phone}"
-                                       placeholder="Enter Phone Employee">
+                                <input type="text" class="form-control" required th:field="*{phone}" placeholder="Enter Phone Employee">
                             </div>
                         </td>
                     </tr>
@@ -172,8 +163,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Email</span>
-                                <input type="text" class="form-control" required th:field="*{email}"
-                                       placeholder="Enter Email Employee">
+                                <input type="text" class="form-control" required th:field="*{email}" placeholder="Enter Email Employee">
                             </div>
                         </td>
                     </tr>
@@ -182,8 +172,7 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Address</span>
-                                <input type="text" class="form-control" required th:field="*{address}"
-                                       placeholder="Enter Address Employee">
+                                <input type="text" class="form-control" required th:field="*{address}" placeholder="Enter Address Employee">
                             </div>
                         </td>
                     </tr>
@@ -194,8 +183,7 @@
                                 <span class="input-group-text">Position</span>
                                 <label style="width: 100%">
                                     <select class="form-select" th:field="*{position}">
-                                        <option th:each="item : ${positions}" th:value="${item.id}"
-                                                th:text="${item.name}"></option>
+                                        <option th:each="item : ${positions}" th:value="${item.id}" th:text="${item.name}"></option>
                                     </select>
                                 </label>
                             </div>
@@ -208,8 +196,7 @@
                                 <span class="input-group-text">Education Degree</span>
                                 <label style="width: 100%">
                                     <select class="form-select" th:field="*{educationDegree}">
-                                        <option th:each="item : ${educationDegrees}" th:value="${item.id}"
-                                                th:text="${item.name}"></option>
+                                        <option th:each="item : ${educationDegrees}" th:value="${item.id}" th:text="${item.name}"></option>
                                     </select>
                                 </label>
                             </div>
@@ -222,8 +209,7 @@
                                 <span class="input-group-text">Division</span>
                                 <label style="width: 100%">
                                     <select class="form-select" th:field="*{division}">
-                                        <option th:each="item : ${divisions}" th:value="${item.id}"
-                                                th:text="${item.name}"></option>
+                                        <option th:each="item : ${divisions}" th:value="${item.id}" th:text="${item.name}"></option>
                                     </select>
                                 </label>
                             </div>
@@ -250,8 +236,6 @@
     <div class="col-lg-12 border border-1 text-center fw-bold gradient-footer">Footer</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
