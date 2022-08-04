@@ -1,6 +1,9 @@
 package com.example.model.facility;
 
+import com.example.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Facility {
@@ -27,10 +30,13 @@ public class Facility {
     @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
     private RentType rentType;
 
+    @OneToMany(mappedBy = "facilities")
+    private Set<Contract> contracts;
+
     public Facility() {
     }
 
-    public Facility(int id, String name, double area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloor, String facilityFree, FacilityType facilityType, RentType rentType) {
+    public Facility(int id, String name, double area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloor, String facilityFree, FacilityType facilityType, RentType rentType, Set<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -43,6 +49,7 @@ public class Facility {
         this.facilityFree = facilityFree;
         this.facilityType = facilityType;
         this.rentType = rentType;
+        this.contracts = contracts;
     }
 
     public int getId() {
@@ -139,5 +146,13 @@ public class Facility {
 
     public void setRentType(RentType rentType) {
         this.rentType = rentType;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

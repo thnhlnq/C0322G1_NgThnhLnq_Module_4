@@ -1,6 +1,9 @@
 package com.example.model.employee;
 
+import com.example.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Employee {
@@ -28,10 +31,13 @@ public class Employee {
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
+    @OneToMany(mappedBy = "employees")
+    private Set<Contract> contracts;
+
     public Employee() {
     }
 
-    public Employee(int id, String name, String dateOfBirth, String idCard, double salary, String phone, String email, String address, Position position, EducationDegree educationDegree, Division division) {
+    public Employee(int id, String name, String dateOfBirth, String idCard, double salary, String phone, String email, String address, Position position, EducationDegree educationDegree, Division division, Set<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -43,6 +49,7 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
+        this.contracts = contracts;
     }
 
     public int getId() {
@@ -131,5 +138,13 @@ public class Employee {
 
     public void setDivision(Division division) {
         this.division = division;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

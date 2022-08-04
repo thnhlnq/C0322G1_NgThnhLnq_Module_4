@@ -216,7 +216,7 @@ VALUES ('Villa Beach Front', 25000, 10000000, 10, 'vip', 'Có hồ bơi', 500, 4
        ('House Princess 02', 10000, 4000000, 5, 'normal', 'Có thêm bếp nướng', 400, 2, 'facility_free', 3, 2),
        ('Room Twin 02', 3000, 900000, 2, 'normal', 'Có tivi', 500, 5, 'facility_free', 4, 3);
 
-INSERT INTO attach_facility (attach_facility_name, attach_facility_cost, attach_facility_unit, attach_facility_status)
+INSERT INTO attach_facility (name, cost, unit, status)
 VALUES ('Karaoke', 10000, 'giờ', 'tiện nghi, hiện tại'),
        ('Thuê xe máy', 10000, 'chiếc', 'hỏng 1 xe'),
        ('Thuê xe đạp', 20000, 'chiếc', 'tốt'),
@@ -224,7 +224,7 @@ VALUES ('Karaoke', 10000, 'giờ', 'tiện nghi, hiện tại'),
        ('Buffet buổi trưa', 90000, 'suất', 'đầy đủ đồ ăn, tráng miệng'),
        ('Buffet buổi tối', 16000, 'suất', 'đầy đủ đồ ăn, tráng miệng');
 
-INSERT INTO contract (contract_start_date, contract_end_date, contract_deposit, employee_id, customer_id, facility_id)
+INSERT INTO contract (start_date, end_date, deposit, employee_id, customer_id, facility_id)
 VALUES ('2020-12-08', '2020-12-08', 0, 3, 1, 3),
        ('2020-07-14', '2020-07-21', 200000, 7, 3, 1),
        ('2021-03-15', '2021-03-17', 50000, 3, 4, 2),

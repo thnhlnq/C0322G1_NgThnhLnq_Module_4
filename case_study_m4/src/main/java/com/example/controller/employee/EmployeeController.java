@@ -35,23 +35,23 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     public String showList(Model model, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        model.addAttribute("employeeCreate", new Employee());
+        model.addAttribute("employeeEdit", new Employee());
         model.addAttribute("employees", employeeService.findAll(pageable));
         model.addAttribute("positions", positionService.findAll());
         model.addAttribute("educationDegrees", educationDegreeService.findAll());
         model.addAttribute("divisions", divisionService.findAll());
-        model.addAttribute("employeeCreate", new Employee());
-
         return "employee/list";
     }
 
-    @GetMapping("employee/create")
-    public String showCreate(Model model) {
-        model.addAttribute("employees", new Employee());
-        model.addAttribute("positions", positionService.findAll());
-        model.addAttribute("educationDegrees", educationDegreeService.findAll());
-        model.addAttribute("divisions", divisionService.findAll());
-        return "employee/create";
-    }
+//    @GetMapping("employee/create")
+//    public String showCreate(Model model) {
+//        model.addAttribute("employees", new Employee());
+//        model.addAttribute("positions", positionService.findAll());
+//        model.addAttribute("educationDegrees", educationDegreeService.findAll());
+//        model.addAttribute("divisions", divisionService.findAll());
+//        return "employee/list";
+//    }
 
     @PostMapping("employee/create")
     public String create(Employee employee, RedirectAttributes redirectAttributes) {
@@ -61,12 +61,16 @@ public class EmployeeController {
     }
 
     @GetMapping("employee/edit")
-    public String showEdit(@RequestParam int id, Model model) {
+    public String showEdit(@PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC)
+                               Pageable pageable, @RequestParam int id, Model model) {
+        model.addAttribute("employeeCreate", new Employee());
         model.addAttribute("employeeEdit", employeeService.findById(id));
+        model.addAttribute("employees", employeeService.findAll(pageable));
         model.addAttribute("positions", positionService.findAll());
         model.addAttribute("educationDegrees", educationDegreeService.findAll());
         model.addAttribute("divisions", divisionService.findAll());
-        return "employee/edit";
+        model.addAttribute("flag", 1);
+        return "employee/list";
     }
 
     @PostMapping("employee/edit")

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Nguyễn Thành Lonq</title>
     <link rel="shortcut icon" href="../1905504.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         [class*="col-"] {
             float: left;
@@ -67,7 +68,8 @@
         <div class="col-lg-3 text-end p-5 fw-bold text-success">
             <div sec:authentication="principal.username"></div>
             <div class="avatar ms-2">
-                <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="20px" height="20px"></a>
+                <a href="/logout">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="20px" height="20px"></a>
             </div>
         </div>
     </div>
@@ -80,6 +82,7 @@
                 <button class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303" alt="" width="30px" height="30px">
                 <a class="navbar-brand" href="#"> </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
@@ -95,7 +98,7 @@
                                 <li><a class="dropdown-item" href="#">Room</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link text-white" href="#">Contract</a>
+                        <a class="nav-link text-white" href="/contract">Contract</a>
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;">
                         <label><input class="form-control me-2" type="search" placeholder="Search"></label>
@@ -110,15 +113,16 @@
 <div class="container-fluid">
     <div class="gradient-header">
         <div class="gradient-custom" style="text-align: center">
-            <form th:action="@{/customer/create}" th:object="${customers}" method="POST">
+            <form th:action="@{/customer/create}" th:object="${customerDto}" method="POST">
                 <h2>Create Customer</h2>
                 <table style="display: inline-grid">
                     <tr>
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Name</span>
-                                <input style="width: 100%" type="text" class="form-control" required th:field="*{name}" placeholder="Enter Name Customer">
+                                <input style="width: 100%" type="text" class="form-control" th:field="*{name}" placeholder="Enter Name Customer"><br>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                         </td>
                     </tr>
 
@@ -126,8 +130,9 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Date Of Birth</span>
-                                <input type="date" class="form-control" required th:field="*{dateOfBirth}" placeholder="Enter Date Of Birth Customer">
+                                <input type="date" class="form-control" th:field="*{dateOfBirth}" placeholder="Enter Date Of Birth Customer"><br>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></p>
                         </td>
                     </tr>
 
@@ -136,13 +141,14 @@
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Gender</span>
                                 <label style="width: 100%">
-                                    <select class="form-select" required th:field="*{gender}">
+                                    <select class="form-select" th:field="*{gender}">
                                         <option th:value=1>Male</option>
                                         <option th:value=0>Female</option>
                                         <option th:value=2>Other Gender</option>
                                     </select>
                                 </label>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>
                         </td>
                     </tr>
 
@@ -150,8 +156,9 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Id Card</span>
-                                <input type="text" class="form-control" required th:field="*{idCard}" placeholder="Enter Id Card Customer">
+                                <input type="text" class="form-control" th:field="*{idCard}" placeholder="Enter Id Card Customer"><br>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></p>
                         </td>
                     </tr>
 
@@ -159,8 +166,9 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Phone</span>
-                                <input type="text" class="form-control" required th:field="*{phone}" placeholder="Enter Phone Customer">
+                                <input type="text" class="form-control" th:field="*{phone}" placeholder="Enter Phone Customer"><br>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
                         </td>
                     </tr>
 
@@ -168,8 +176,9 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Email</span>
-                                <input type="text" class="form-control" required th:field="*{email}" placeholder="Enter Email Customer">
+                                <input type="text" class="form-control" th:field="*{email}" placeholder="Enter Email Customer"><br>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                         </td>
                     </tr>
 
@@ -177,8 +186,9 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Address</span>
-                                <input type="text" class="form-control" required th:field="*{address}" placeholder="Enter Address Customer">
+                                <input type="text" class="form-control" th:field="*{address}" placeholder="Enter Address Customer"><br>
                             </div>
+                            <p style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
                         </td>
                     </tr>
 
@@ -215,6 +225,8 @@
     <div class="col-lg-12 gradient-footer border border-1 text-center fw-bold">Footer</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </body>
 </html>

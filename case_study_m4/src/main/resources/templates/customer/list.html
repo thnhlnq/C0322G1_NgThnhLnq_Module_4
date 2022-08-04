@@ -80,6 +80,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303" alt="" width="30px" height="30px">
                 <a class="navbar-brand" href="#"> </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
@@ -95,7 +96,7 @@
                                 <li><a class="dropdown-item" href="#">Room</a></li>
                             </ul>
                         </li>
-                        <a class="nav-link text-white" href="#">Contract</a>
+                        <a class="nav-link text-white" href="/contract">Contract</a>
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;" th:action="@{/customer/search}">
                         <label><input class="form-control me-2" type="search" placeholder="Search" name="nameFind"></label>
@@ -147,8 +148,7 @@
                 <td th:text="${row.customerType.name}"></td>
                 <td><a class="btn btn-outline-secondary" th:href="@{/customer/edit(id=${row.id})}">Edit</a></td>
                 <td>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="infoDelete(this.value)" th:value="${row.id} + ',' + ${row.name}">Delete
-                    </button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="infoDelete(this.value)" th:value="${row.id} + ',' + ${row.name}">Delete</button>
                 </td>
             </tr>
         </table>

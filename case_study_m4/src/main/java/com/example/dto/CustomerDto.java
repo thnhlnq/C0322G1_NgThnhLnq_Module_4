@@ -1,19 +1,42 @@
 package com.example.dto;
 
+import com.example.model.customer.CustomerType;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 public class CustomerDto {
+
     private int id;
+
+    @NotBlank(message = "Name Must Be Capitalization !")
+    @Pattern(regexp = "^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$", message = "")
     private String name;
+
+    @NotBlank(message = "Cannot Be Blank !")
     private String dateOfBirth;
+
     private int gender;
+
+    @Pattern(regexp = "^\\d{9}|\\d{12}$", message = "Id Card Must Have 9 / 12 number !")
     private String idCard;
+
+    @Pattern(regexp = "^(090|091|8490|8491)+(\\d{7})$", message = "Phone Must Be Incorrect Format !")
     private String phone;
+
+    @NotBlank(message = "Email Must Be Incorrect Format !")
+    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "")
     private String email;
+
+    @NotBlank(message = "Cannot Be Blank !")
     private String address;
+    private CustomerType customerType;
 
     public CustomerDto() {
     }
 
-    public CustomerDto(int id, String name, String dateOfBirth, int gender, String idCard, String phone, String email, String address) {
+    public CustomerDto(int id, String name, String dateOfBirth, int gender, String idCard, String phone, String email, String address, CustomerType customerType) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -22,6 +45,7 @@ public class CustomerDto {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.customerType = customerType;
     }
 
     public int getId() {
@@ -86,5 +110,13 @@ public class CustomerDto {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
     }
 }

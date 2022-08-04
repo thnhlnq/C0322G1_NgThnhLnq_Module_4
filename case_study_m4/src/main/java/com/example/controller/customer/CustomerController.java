@@ -1,8 +1,10 @@
 package com.example.controller.customer;
 
+import com.example.dto.CustomerDto;
 import com.example.model.customer.Customer;
 import com.example.service.customer.ICustomerService;
 import com.example.service.customer.ICustomerTypeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,11 +12,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 public class CustomerController {
@@ -34,16 +39,24 @@ public class CustomerController {
 
     @GetMapping("customer/create")
     public String showCreate(Model model) {
-        model.addAttribute("customers", new Customer());
+        model.addAttribute("customerDto", new CustomerDto());
         model.addAttribute("customerTypes", customerTypeService.findAll());
         return "customer/create";
     }
 
     @PostMapping("customer/create")
-    public String create(Customer customer, RedirectAttributes redirectAttributes) {
-        customerService.save(customer);
-        redirectAttributes.addFlashAttribute("success", "Add Customer Success!");
-        return "redirect:/customer";
+    public String create(@ModelAttribute @Valid CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        if (bindingResult.hasFieldErrors()) {
+            model.addAttribute("customers", new Customer());
+            model.addAttribute("customerTypes", customerTypeService.findAll());
+            return "customer/create";
+        } else {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto, customer);
+            customerService.save(customer);
+            redirectAttributes.addFlashAttribute("success", "Add Customer Success!");
+            return "redirect:/customer";
+        }
     }
 
     @GetMapping("customer/edit")
