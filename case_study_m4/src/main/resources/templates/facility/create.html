@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Nguyễn Thành Lonq</title>
     <link rel="shortcut icon" href="../1905504.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         [class*="col-"] {
             float: left;
@@ -50,7 +51,8 @@
 <div class="container-fluid">
     <div class="col-lg-12 gradient-header p-2 text-light bg-opacity-25">
         <div class="col-lg-3 px-5 py-2">
-            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" alt="Furama" width="75px" height="100px">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" alt="Furama" width="75px"
+                 height="100px">
         </div>
         <div class="col-lg-3 text-success py-3">
             <img src="https://cdn-icons-png.flaticon.com/512/4743/4743044.png" alt="map" width="20" height="20">
@@ -67,7 +69,8 @@
         <div class="col-lg-3 text-end p-5 fw-bold text-success">
             <div sec:authentication="principal.username"></div>
             <div class="avatar ms-2">
-                <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="20px" height="20px"></a>
+                <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout"
+                                       width="20px" height="20px"></a>
             </div>
         </div>
     </div>
@@ -80,7 +83,8 @@
                 <button class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303" alt="" width="30px" height="30px">
+                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303"
+                     alt="" width="30px" height="30px">
                 <a class="navbar-brand" href="#"> </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
@@ -118,7 +122,8 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Name</span>
-                                <input style="width: 100%" type="text" class="form-control" th:field="*{name}" placeholder="Enter Name">
+                                <input style="width: 100%" type="text" class="form-control" th:field="*{name}"
+                                       placeholder="Enter Name">
                             </div>
                         </td>
                     </tr>
@@ -155,7 +160,8 @@
                         <td>
                             <div class="input-group flex-nowrap" id="standardRoom">
                                 <span class="input-group-text">Standard Room</span>
-                                <input type="text" class="form-control" th:field="*{standardRoom}" placeholder="Enter Standard Room">
+                                <input type="text" class="form-control" th:field="*{standardRoom}"
+                                       placeholder="Enter Standard Room">
                             </div>
                         </td>
                     </tr>
@@ -164,7 +170,8 @@
                         <td>
                             <div class="input-group flex-nowrap" id="other">
                                 <span class="input-group-text">Description Other Convenience</span>
-                                <input type="text" class="form-control" th:field="*{descriptionOtherConvenience}" placeholder="Enter Description Other Convenience">
+                                <input type="text" class="form-control" th:field="*{descriptionOtherConvenience}"
+                                       placeholder="Enter Description Other Convenience">
                             </div>
                         </td>
                     </tr>
@@ -173,7 +180,8 @@
                         <td>
                             <div class="input-group flex-nowrap" id="pool">
                                 <span class="input-group-text">Pool Area</span>
-                                <input type="text" class="form-control" th:field="*{poolArea}" placeholder="Enter Pool Area">
+                                <input type="text" class="form-control" th:field="*{poolArea}"
+                                       placeholder="Enter Pool Area">
                             </div>
                         </td>
                     </tr>
@@ -182,7 +190,8 @@
                         <td>
                             <div class="input-group flex-nowrap" id="floor">
                                 <span class="input-group-text">Number Of Floor</span>
-                                <input type="text" class="form-control" th:field="*{numberOfFloor}" placeholder="Enter Number Of Floor">
+                                <input type="text" class="form-control" th:field="*{numberOfFloor}"
+                                       placeholder="Enter Number Of Floor">
                             </div>
                         </td>
                     </tr>
@@ -191,7 +200,8 @@
                         <td>
                             <div class="input-group flex-nowrap" id="free">
                                 <span class="input-group-text">Facility Free</span>
-                                <input type="text" class="form-control" th:field="*{facilityFree}" placeholder="Enter Facility Free">
+                                <input type="text" class="form-control" th:field="*{facilityFree}"
+                                       placeholder="Enter Facility Free">
                             </div>
                         </td>
                     </tr>
@@ -201,8 +211,10 @@
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Facility Type</span>
                                 <label style="width: 100%">
-                                    <select class="form-select" th:field="*{facilityType}" onchange="changeFacility(this.value)">
-                                        <option th:each="item : ${facilityTypes}" th:value="${item.id}" th:text="${item.name}"></option>
+                                    <select class="form-select" th:field="*{facilityType}"
+                                            onchange="changeFacility(this.value)">
+                                        <option th:each="item : ${facilityTypes}" th:value="${item.id}"
+                                                th:text="${item.name}"></option>
                                     </select>
                                 </label>
                             </div>
@@ -215,7 +227,8 @@
                                 <span class="input-group-text">Rent Type</span>
                                 <label style="width: 100%">
                                     <select class="form-select" th:field="*{rentType}">
-                                        <option th:each="item : ${rentTypes}" th:value="${item.id}" th:text="${item.name}"></option>
+                                        <option th:each="item : ${rentTypes}" th:value="${item.id}"
+                                                th:text="${item.name}"></option>
                                     </select>
                                 </label>
                             </div>
@@ -226,8 +239,14 @@
                         <div class="col-12">
                             <td>
                                 <div class="vstack">
-                                    <input type="submit" class="btn btn-secondary" value="Create">
-                                    <a class="btn btn-outline-secondary" href="/service">Cancel</a>
+                                    <button type="submit" class="btn" value="Create">
+                                        <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550598.png?token=exp=1659608134~hmac=8c47d172118df42573f1e8d264367572"
+                                             alt="" width="30px" height="30px">
+                                    </button>
+                                    <a class="btn" href="/service">
+                                        <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550599.png?token=exp=1659608231~hmac=34fc27f117472e8ccd1dfd17696a088e"
+                                             alt="" width="30px" height="30px">
+                                    </a>
                                 </div>
                             </td>
                         </div>
@@ -260,7 +279,7 @@
             $("#pool").hide();
             $("#floor").hide();
             $("#free").show();
-        }else {
+        } else {
             $("#standardRoom").hide();
             $("#other").hide();
             $("#pool").hide();
@@ -274,6 +293,8 @@
     <div class="col-lg-12 gradient-footer border border-1 text-center fw-bold">Footer</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </body>
 </html>

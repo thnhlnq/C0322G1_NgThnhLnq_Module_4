@@ -51,7 +51,8 @@
 <div class="container-fluid">
     <div class="col-lg-12 gradient-header p-2 text-light bg-opacity-25">
         <div class="col-lg-3 px-5 py-2">
-            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" alt="Furama" width="75px" height="100px">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" alt="Furama" width="75px"
+                 height="100px">
         </div>
         <div class="col-lg-3 text-success py-3">
             <img src="https://cdn-icons-png.flaticon.com/512/4743/4743044.png" alt="map" width="20" height="20">
@@ -69,7 +70,8 @@
             <div sec:authentication="principal.username"></div>
             <div class="avatar ms-2">
                 <a href="/logout">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="20px" height="20px"></a>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="20px"
+                         height="20px"></a>
             </div>
         </div>
     </div>
@@ -82,7 +84,8 @@
                 <button class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303" alt="" width="30px" height="30px">
+                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303"
+                     alt="" width="30px" height="30px">
                 <a class="navbar-brand" href="#"> </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
@@ -120,7 +123,8 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Name</span>
-                                <input style="width: 100%" type="text" class="form-control" th:field="*{name}" placeholder="Enter Name Customer"><br>
+                                <input style="width: 100%" type="text" class="form-control" th:field="*{name}"
+                                       placeholder="Enter Name Customer"><br>
                             </div>
                             <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                         </td>
@@ -130,9 +134,11 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Date Of Birth</span>
-                                <input type="date" class="form-control" th:field="*{dateOfBirth}" placeholder="Enter Date Of Birth Customer"><br>
+                                <input type="date" class="form-control" th:field="*{dateOfBirth}"
+                                       placeholder="Enter Date Of Birth Customer"><br>
                             </div>
-                            <p style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></p>
+                            <p style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}"
+                               th:errors="*{dateOfBirth}"></p>
                         </td>
                     </tr>
 
@@ -156,7 +162,8 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Id Card</span>
-                                <input type="text" class="form-control" th:field="*{idCard}" placeholder="Enter Id Card Customer"><br>
+                                <input type="text" class="form-control" th:field="*{idCard}"
+                                       placeholder="Enter Id Card Customer"><br>
                             </div>
                             <p style="color: red" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></p>
                         </td>
@@ -166,7 +173,8 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Phone</span>
-                                <input type="text" class="form-control" th:field="*{phone}" placeholder="Enter Phone Customer"><br>
+                                <input type="text" class="form-control" th:field="*{phone}"
+                                       placeholder="Enter Phone Customer"><br>
                             </div>
                             <p style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
                         </td>
@@ -176,7 +184,8 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Email</span>
-                                <input type="text" class="form-control" th:field="*{email}" placeholder="Enter Email Customer"><br>
+                                <input type="text" class="form-control" th:field="*{email}"
+                                       placeholder="Enter Email Customer"><br>
                             </div>
                             <p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                         </td>
@@ -186,7 +195,8 @@
                         <td>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text">Address</span>
-                                <input type="text" class="form-control" th:field="*{address}" placeholder="Enter Address Customer"><br>
+                                <input type="text" class="form-control" th:field="*{address}"
+                                       placeholder="Enter Address Customer"><br>
                             </div>
                             <p style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
                         </td>
@@ -198,7 +208,8 @@
                                 <span class="input-group-text">Customer Type</span>
                                 <label style="width: 100%">
                                     <select class="form-select" th:field="*{customerType}">
-                                        <option th:each="item : ${customerTypes}" th:value="${item.id}" th:text="${item.name}"></option>
+                                        <option th:each="item : ${customerTypes}" th:value="${item.id}"
+                                                th:text="${item.name}"></option>
                                     </select>
                                 </label>
                             </div>
@@ -209,8 +220,14 @@
                         <div class="col-12">
                             <td>
                                 <div class="vstack">
-                                    <input type="submit" class="btn btn-secondary" value="Create">
-                                    <a class="btn btn-outline-secondary" href="/customer">Cancel</a>
+                                    <button type="submit" class="btn" value="Create">
+                                        <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550598.png?token=exp=1659608134~hmac=8c47d172118df42573f1e8d264367572"
+                                             alt="" width="30px" height="30px">
+                                    </button>
+                                    <a class="btn" href="/customer">
+                                        <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550599.png?token=exp=1659608231~hmac=34fc27f117472e8ccd1dfd17696a088e"
+                                             alt="" width="30px" height="30px">
+                                    </a>
                                 </div>
                             </td>
                         </div>
