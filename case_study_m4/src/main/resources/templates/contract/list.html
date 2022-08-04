@@ -69,8 +69,9 @@
         <div class="col-lg-3 text-end p-5 fw-bold text-success">
             <div sec:authentication="principal.username"></div>
             <div class="avatar ms-2">
-                <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout"
-                                       width="30px" height="30px"></a>
+                <a href="/logout"><img
+                        src="https://cdn-icons.flaticon.com/png/512/4680/premium/4680657.png?token=exp=1659608877~hmac=3fc518cf2f570980435be1a5e4f050c6"
+                        alt="logout" width="20px" height="20px"></a>
             </div>
         </div>
     </div>
@@ -83,9 +84,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
                         aria-label="Toggle navigation">
-                    <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303"
-                         alt="" width="30px" height="30px">
                 </button>
+                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550605.png?token=exp=1659608998~hmac=4c351e515609555c4eff8b22cd6a2303"
+                     alt="" width="30px" height="30px">
                 <a class="navbar-brand" href="#"> </a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
@@ -108,7 +109,10 @@
                           th:action="@{/contract/search}">
                         <label><input class="form-control me-2" type="search" placeholder="Search"
                                       name="nameFind"></label>
-                        <input class="btn bg-light text-success ms-1" type="submit" th:value="Search">
+                        <button class="btn ms-1" type="submit">
+                            <img src="https://cdn-icons.flaticon.com/png/512/6061/premium/6061395.png?token=exp=1659622313~hmac=6929bb7a93229087bd9471714b447048"
+                                 alt="" width="30px" height="30px">
+                        </button>
                     </form>
                 </div>
             </div>
@@ -162,11 +166,15 @@
 
         <div style="text-align: right">
             <a th:href="@{'/contract'(page = ${contracts.number - 1})}" th:if="${contracts.hasPrevious()}"
-               class="btn btn-outline-secondary me-3">Previous</a>
+               class="btn me-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/5542/5542065.png" alt="" width="30px" height="30px">
+            </a>
             <span th:text="${contracts.number + 1}"></span> /
             <span th:text="${contracts.totalPages}"></span>
             <a th:href="@{'/contract'(page = ${contracts.number + 1})}" th:if="${contracts.hasNext()}"
-               class="btn btn-outline-secondary ms-3">Next</a>
+               class="btn ms-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/5542/5542086.png" alt="" width="30px" height="30px">
+            </a>
         </div>
     </div>
 </div>

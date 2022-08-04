@@ -69,9 +69,9 @@
         <div class="col-lg-3 text-end p-5 fw-bold text-success">
             <div sec:authentication="principal.username"></div>
             <div class="avatar ms-2">
-                <a href="/logout">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout" width="30px"
-                         height="30px"></a>
+                <a href="/logout"><img
+                        src="https://cdn-icons.flaticon.com/png/512/4680/premium/4680657.png?token=exp=1659608877~hmac=3fc518cf2f570980435be1a5e4f050c6"
+                        alt="logout" width="20px" height="20px"></a>
             </div>
         </div>
     </div>
@@ -108,8 +108,12 @@
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;"
                           th:action="@{/employee/search}">
-                        <input class="form-control me-2" type="search" placeholder="Search" name="nameFind">
-                        <input class="btn bg-light text-success ms-1" type="submit" th:value="Search">
+                        <label><input class="form-control me-2" type="search" placeholder="Search"
+                                      name="nameFind"></label>
+                        <button class="btn ms-1" type="submit">
+                            <img src="https://cdn-icons.flaticon.com/png/512/6061/premium/6061395.png?token=exp=1659622313~hmac=6929bb7a93229087bd9471714b447048"
+                                 alt="" width="30px" height="30px">
+                        </button>
                     </form>
                 </div>
             </div>
@@ -171,8 +175,8 @@
                             <button type="button" class="btn" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onclick="infoDelete(this.value)"
                                     th:value="${row.id} + ',' + ${row.name}">
-                                <img src="https://cdn-icons.flaticon.com/png/512/1550/premium/1550599.png?token=exp=1659608231~hmac=34fc27f117472e8ccd1dfd17696a088e"
-                                     alt="" width="30px" height="30px">
+                                <img src="https://cdn-icons-png.flaticon.com/512/7951/7951990.png" alt="" width="30px"
+                                     height="30px">
                             </button>
                         </td>
                     </tr>
@@ -180,11 +184,17 @@
 
                 <div style="text-align: right">
                     <a th:href="@{'/employee'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}"
-                       class="btn btn-outline-secondary me-3">Previous</a>
+                       class="btn me-3">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5542/5542065.png" alt="" width="30px"
+                             height="30px">
+                    </a>
                     <span th:text="${employees.number + 1}"></span> /
                     <span th:text="${employees.totalPages}"></span>
                     <a th:href="@{'/employee'(page = ${employees.number + 1})}" th:if="${employees.hasNext()}"
-                       class="btn btn-outline-secondary ms-3">Next</a>
+                       class="btn ms-3">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5542/5542086.png" alt="" width="30px"
+                             height="30px">
+                    </a>
                 </div>
             </div>
         </div>

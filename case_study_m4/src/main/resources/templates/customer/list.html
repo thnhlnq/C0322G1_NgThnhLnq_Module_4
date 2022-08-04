@@ -69,8 +69,9 @@
         <div class="col-lg-3 text-end p-5 fw-bold text-success">
             <div sec:authentication="principal.username"></div>
             <div class="avatar ms-2">
-                <a href="/logout"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="logout"
-                                       width="20px" height="20px"></a>
+                <a href="/logout"><img
+                        src="https://cdn-icons.flaticon.com/png/512/4680/premium/4680657.png?token=exp=1659608877~hmac=3fc518cf2f570980435be1a5e4f050c6"
+                        alt="logout" width="20px" height="20px"></a>
             </div>
         </div>
     </div>
@@ -109,7 +110,10 @@
                           th:action="@{/customer/search}">
                         <label><input class="form-control me-2" type="search" placeholder="Search"
                                       name="nameFind"></label>
-                        <input class="btn bg-light text-success ms-1" type="submit" th:value="Search">
+                        <button class="btn ms-1" type="submit">
+                            <img src="https://cdn-icons.flaticon.com/png/512/6061/premium/6061395.png?token=exp=1659622313~hmac=6929bb7a93229087bd9471714b447048"
+                                 alt="" width="30px" height="30px">
+                        </button>
                     </form>
                 </div>
             </div>
@@ -175,11 +179,15 @@
 
         <div style="text-align: right">
             <a th:href="@{'/customer'(page = ${customers.number - 1})}" th:if="${customers.hasPrevious()}"
-               class="btn btn-outline-secondary me-3">Previous</a>
+               class="btn me-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/5542/5542065.png" alt="" width="30px" height="30px">
+            </a>
             <span th:text="${customers.number + 1}"></span> /
             <span th:text="${customers.totalPages}"></span>
             <a th:href="@{'/customer'(page = ${customers.number + 1})}" th:if="${customers.hasNext()}"
-               class="btn btn-outline-secondary ms-3">Next</a>
+               class="btn ms-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/5542/5542086.png" alt="" width="30px" height="30px">
+            </a>
         </div>
 
         <!--         Modal Delete-->
