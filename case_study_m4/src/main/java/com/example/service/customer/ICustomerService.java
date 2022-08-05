@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface ICustomerService {
 
-    Page<Customer> findAll(Pageable pageable);
+    Page<Customer> findAll(Pageable pageable, String nameFind);
 
     void save(Customer customer);
 
@@ -18,8 +18,6 @@ public interface ICustomerService {
     void edit(Customer customer);
 
     void delete(int id);
-
-    Page<Customer> findByName(String nameFind, Pageable pageable);
 
     List<Customer> findAll();
 }

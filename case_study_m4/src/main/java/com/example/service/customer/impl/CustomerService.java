@@ -18,8 +18,8 @@ public class CustomerService implements ICustomerService {
     ICustomerRepository customerRepository;
 
     @Override
-    public Page<Customer> findAll(Pageable pageable) {
-        return customerRepository.findAll(pageable);
+    public Page<Customer> findAll(Pageable pageable, String nameFind) {
+        return customerRepository.findAll(pageable, "%" + nameFind + "%");
     }
 
     @Override
@@ -42,10 +42,6 @@ public class CustomerService implements ICustomerService {
         customerRepository.deleteById(id);
     }
 
-    @Override
-    public Page<Customer> findByName(String nameFind, Pageable pageable) {
-        return customerRepository.findByName("%" + nameFind + "%", pageable);
-    }
 
     @Override
     public List<Customer> findAll() {

@@ -6,7 +6,6 @@ import com.example.service.customer.ICustomerService;
 import com.example.service.customer.ICustomerTypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class CustomerController {
@@ -31,8 +31,10 @@ public class CustomerController {
     ICustomerTypeService customerTypeService;
 
     @GetMapping("/customer")
-    public String showList(Model model, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        model.addAttribute("customers", customerService.findAll(pageable));
+    public String showList(Model model, @RequestParam Optional<String> nameFind,
+                           @PageableDefault(value = 6, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
+        model.addAttribute("nameFind", nameFind.orElse(""));
+        model.addAttribute("customers", customerService.findAll(pageable, nameFind.orElse("")));
         model.addAttribute("customerTypes", customerTypeService.findAll());
         return "customer/list";
     }
@@ -78,12 +80,5 @@ public class CustomerController {
         customerService.delete(id);
         redirectAttributes.addFlashAttribute("success", "Delete Customer Success!");
         return "redirect:/customer";
-    }
-
-    @GetMapping("customer/search")
-    public String search(@RequestParam String nameFind, @PageableDefault(value = 6) Pageable pageable, Model model) {
-        Page<Customer> search = customerService.findByName(nameFind, pageable);
-        model.addAttribute("customers", search);
-        return "customer/list";
     }
 }

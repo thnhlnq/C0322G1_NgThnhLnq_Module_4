@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 public class EmployeeController {
 
@@ -34,24 +36,16 @@ public class EmployeeController {
     IDivisionService divisionService;
 
     @GetMapping("/employee")
-    public String showList(Model model, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String showList(Model model, @RequestParam Optional<String> nameFind, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("employeeCreate", new Employee());
         model.addAttribute("employeeEdit", new Employee());
-        model.addAttribute("employees", employeeService.findAll(pageable));
+        model.addAttribute("nameFind", nameFind.orElse(""));
+        model.addAttribute("employees", employeeService.findAll(pageable, nameFind.orElse("")));
         model.addAttribute("positions", positionService.findAll());
         model.addAttribute("educationDegrees", educationDegreeService.findAll());
         model.addAttribute("divisions", divisionService.findAll());
         return "employee/list";
     }
-
-//    @GetMapping("employee/create")
-//    public String showCreate(Model model) {
-//        model.addAttribute("employees", new Employee());
-//        model.addAttribute("positions", positionService.findAll());
-//        model.addAttribute("educationDegrees", educationDegreeService.findAll());
-//        model.addAttribute("divisions", divisionService.findAll());
-//        return "employee/list";
-//    }
 
     @PostMapping("employee/create")
     public String create(Employee employee, RedirectAttributes redirectAttributes) {
@@ -61,11 +55,10 @@ public class EmployeeController {
     }
 
     @GetMapping("employee/edit")
-    public String showEdit(@PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC)
-                               Pageable pageable, @RequestParam int id, Model model) {
+    public String showEdit(@RequestParam Optional<String> nameFind, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable, @RequestParam int id, Model model) {
         model.addAttribute("employeeCreate", new Employee());
         model.addAttribute("employeeEdit", employeeService.findById(id));
-        model.addAttribute("employees", employeeService.findAll(pageable));
+        model.addAttribute("employees", employeeService.findAll(pageable, nameFind.orElse("")));
         model.addAttribute("positions", positionService.findAll());
         model.addAttribute("educationDegrees", educationDegreeService.findAll());
         model.addAttribute("divisions", divisionService.findAll());
@@ -85,12 +78,5 @@ public class EmployeeController {
         employeeService.delete(id);
         redirectAttributes.addFlashAttribute("success", "Delete Employee Success!");
         return "redirect:/employee";
-    }
-
-    @GetMapping("employee/search")
-    public String search(@RequestParam String nameFind, @PageableDefault(value = 6) Pageable pageable, Model model) {
-        Page<Employee> search = employeeService.findByName(nameFind, pageable);
-        model.addAttribute("employees", search);
-        return "employee/list";
     }
 }

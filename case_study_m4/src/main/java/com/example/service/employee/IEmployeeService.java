@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface IEmployeeService {
 
-    Page<Employee> findAll(Pageable pageable);
+    Page<Employee> findAll(Pageable pageable, String nameFind);
 
     void save(Employee employee);
 
@@ -17,6 +17,4 @@ public interface IEmployeeService {
     void edit(Employee employee);
 
     void delete(int id);
-
-    Page<Employee> findByName(String nameFind, Pageable pageable);
 }

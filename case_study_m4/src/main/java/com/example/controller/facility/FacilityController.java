@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 public class FacilityController {
 
@@ -30,8 +32,9 @@ public class FacilityController {
     IRentTypeService rentTypeService;
 
     @GetMapping("/service")
-    public String showList(Model model, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        model.addAttribute("facilities", facilityService.findAll(pageable));
+    public String showList(Model model, @RequestParam Optional<String> nameFind, @PageableDefault(value = 6, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        model.addAttribute("nameFind", nameFind.orElse(""));
+        model.addAttribute("facilities", facilityService.findAll(pageable, nameFind.orElse("")));
         model.addAttribute("facilityTypes", facilityTypeService.findAll());
         model.addAttribute("rentTypes", rentTypeService.findAll());
         return "facility/list";
@@ -72,12 +75,5 @@ public class FacilityController {
         facilityService.delete(id);
         redirectAttributes.addFlashAttribute("success", "Delete Facility Success!");
         return "redirect:/service";
-    }
-
-    @GetMapping("service/search")
-    public String search(@RequestParam String nameFind, @PageableDefault(value = 6) Pageable pageable, Model model) {
-        Page<Facility> search = facilityService.findByName(nameFind, pageable);
-        model.addAttribute("facilities", search);
-        return "facility/list";
     }
 }

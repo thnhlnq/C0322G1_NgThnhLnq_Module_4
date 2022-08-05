@@ -13,5 +13,5 @@ import javax.transaction.Transactional;
 public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
 
     @Query(value = "select * from facility where name like :nameFind", nativeQuery = true)
-    Page<Facility> findByName(@Param("nameFind") String nameFind, Pageable pageable);
+    Page<Facility> findAll(Pageable pageable, @Param("nameFind") String nameFind);
 }

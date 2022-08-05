@@ -107,7 +107,7 @@
                         <a class="nav-link text-white" href="/contract">Contract</a>
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;"
-                          th:action="@{/customer/search}">
+                          th:action="@{/customer}">
                         <label><input class="form-control me-2" type="search" placeholder="Search"
                                       name="nameFind"></label>
                         <button class="btn ms-1" type="submit">
@@ -178,19 +178,20 @@
         </table>
 
         <div style="text-align: right">
-            <a th:href="@{'/customer'(page = ${customers.number - 1})}" th:if="${customers.hasPrevious()}"
-               class="btn me-3">
+            <a th:href="@{'/customer'(page = ${customers.number - 1}, nameFind = ${nameFind})}"
+               th:if="${customers.hasPrevious()}" class="btn me-3">
                 <img src="https://cdn-icons-png.flaticon.com/512/5542/5542065.png" alt="" width="30px" height="30px">
             </a>
             <span th:text="${customers.number + 1}"></span> /
             <span th:text="${customers.totalPages}"></span>
-            <a th:href="@{'/customer'(page = ${customers.number + 1})}" th:if="${customers.hasNext()}"
+            <a th:href="@{'/customer'(page = ${customers.number + 1}, nameFind = ${nameFind})}"
+               th:if="${customers.hasNext()}"
                class="btn ms-3">
                 <img src="https://cdn-icons-png.flaticon.com/512/5542/5542086.png" alt="" width="30px" height="30px">
             </a>
         </div>
 
-        <!--         Modal Delete-->
+        <!-- Modal Delete -->
         <form th:action="@{/customer/delete}" method="get">
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">

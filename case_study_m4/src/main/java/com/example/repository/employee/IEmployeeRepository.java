@@ -12,6 +12,6 @@ import javax.transaction.Transactional;
 @Transactional
 public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    @Query(value = "select * from employee where name like :nameFind", nativeQuery = true)
-    Page<Employee> findByName(@Param("nameFind") String nameFind, Pageable pageable);
+    @Query(value = "select * from employee where name like :nameFind or address like :nameFind", nativeQuery = true)
+    Page<Employee> findAll(Pageable pageable, @Param("nameFind") String nameFind);
 }

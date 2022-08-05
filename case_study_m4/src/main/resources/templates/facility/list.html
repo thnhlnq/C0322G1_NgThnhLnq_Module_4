@@ -106,7 +106,7 @@
                         <a class="nav-link text-white" href="/contract">Contract</a>
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;"
-                          th:action="@{/facility/search}">
+                          th:action="@{/service}">
                         <label><input class="form-control me-2" type="search" placeholder="Search"
                                       name="nameFind"></label>
                         <button class="btn ms-1" type="submit">
@@ -179,13 +179,15 @@
         </table>
 
         <div style="text-align: right">
-            <a th:href="@{'/service'(page = ${facilities.number - 1})}" th:if="${facilities.hasPrevious()}"
+            <a th:href="@{'/service'(page = ${facilities.number - 1}, nameFind = ${nameFind})}"
+               th:if="${facilities.hasPrevious()}"
                class="btn me-3">
                 <img src="https://cdn-icons-png.flaticon.com/512/5542/5542065.png" alt="" width="30px"
                      height="30px"></a>
             <span th:text="${facilities.number + 1}"></span> /
             <span th:text="${facilities.totalPages}"></span>
-            <a th:href="@{'/service'(page = ${facilities.number + 1})}" th:if="${facilities.hasNext()}"
+            <a th:href="@{'/service'(page = ${facilities.number + 1}, nameFind = ${nameFind})}"
+               th:if="${facilities.hasNext()}"
                class="btn ms-3">
                 <img src="https://cdn-icons-png.flaticon.com/512/5542/5542086.png" alt="" width="30px" height="30px">
             </a>

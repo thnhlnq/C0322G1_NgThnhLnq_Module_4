@@ -106,7 +106,7 @@
                         <a class="nav-link text-white" href="/contract">Contract</a>
                     </ul>
                     <form class="d-flex" role="search" style="margin-bottom: auto; height: 38px;"
-                          th:action="@{/contract/search}">
+                          th:action="@{/contract}">
                         <label><input class="form-control me-2" type="search" placeholder="Search"
                                       name="nameFind"></label>
                         <button class="btn ms-1" type="submit">
@@ -165,13 +165,15 @@
         </table>
 
         <div style="text-align: right">
-            <a th:href="@{'/contract'(page = ${contracts.number - 1})}" th:if="${contracts.hasPrevious()}"
+            <a th:href="@{'/contract'(page = ${contracts.number - 1}, nameFind = ${nameFind})}"
+               th:if="${contracts.hasPrevious()}"
                class="btn me-3">
                 <img src="https://cdn-icons-png.flaticon.com/512/5542/5542065.png" alt="" width="30px" height="30px">
             </a>
             <span th:text="${contracts.number + 1}"></span> /
             <span th:text="${contracts.totalPages}"></span>
-            <a th:href="@{'/contract'(page = ${contracts.number + 1})}" th:if="${contracts.hasNext()}"
+            <a th:href="@{'/contract'(page = ${contracts.number + 1}, nameFind = ${nameFind})}"
+               th:if="${contracts.hasNext()}"
                class="btn ms-3">
                 <img src="https://cdn-icons-png.flaticon.com/512/5542/5542086.png" alt="" width="30px" height="30px">
             </a>
@@ -281,19 +283,17 @@
 </form>
 
 <!-- Modal List -->
-<form th:action="@{/contract/delete}" method="get">
+<form th:action="@{/contract}" method="get">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Are You Sure ?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">...</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label><input type="text" hidden id="idDelete" name="id"></label>
-                    <span>Delete</span>
-                    <span id="nameDelete"></span>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" data-bs-dismiss="modal">
@@ -310,13 +310,6 @@
     </div>
 </form>
 
-<script>
-    function infoDelete(name) {
-        let str = name.split(",")
-        document.getElementById("idDelete").value = str[0];
-        document.getElementById("nameDelete").innerText = str[1];
-    }
-</script>
 <div class="container-fluid">
     <div class="col-lg-12 gradient-footer border border-1 text-center fw-bold">Footer</div>
 </div>

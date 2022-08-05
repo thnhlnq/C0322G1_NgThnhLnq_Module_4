@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface IContractService {
 
-    Page<Contract> findAll(Pageable pageable);
+    Page<Contract> findAll(Pageable pageable, String nameFind);
 
     void save(Contract contract);
 }

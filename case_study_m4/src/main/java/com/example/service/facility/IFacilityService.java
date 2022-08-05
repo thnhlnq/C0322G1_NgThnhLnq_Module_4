@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface IFacilityService {
 
-    Page<Facility> findAll(Pageable pageable);
+    Page<Facility> findAll(Pageable pageable, String nameFind);
 
     void save(Facility facility);
 
@@ -18,8 +18,6 @@ public interface IFacilityService {
     void edit(Facility facility);
 
     void delete(int id);
-
-    Page<Facility> findByName(String nameFind, Pageable pageable);
 
     List<Facility> findAll();
 }

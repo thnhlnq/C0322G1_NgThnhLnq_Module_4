@@ -18,8 +18,8 @@ public class FacilityService implements IFacilityService {
     IFacilityRepository facilityRepository;
 
     @Override
-    public Page<Facility> findAll(Pageable pageable) {
-        return facilityRepository.findAll(pageable);
+    public Page<Facility> findAll(Pageable pageable, String nameFind) {
+        return facilityRepository.findAll(pageable, "%" + nameFind + "%");
     }
 
     @Override
@@ -40,11 +40,6 @@ public class FacilityService implements IFacilityService {
     @Override
     public void delete(int id) {
         facilityRepository.deleteById(id);
-    }
-
-    @Override
-    public Page<Facility> findByName(String nameFind, Pageable pageable) {
-        return facilityRepository.findByName("%" + nameFind + "%", pageable);
     }
 
     @Override
