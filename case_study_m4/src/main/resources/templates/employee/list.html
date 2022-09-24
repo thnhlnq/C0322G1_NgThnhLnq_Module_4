@@ -154,7 +154,7 @@
                     </tr>
 
                     <tr th:each="row, number : ${employees}">
-                        <td th:text="${number.count}"></td>
+                        <td th:text="${number.count + 6 * employees.number}"></td>
                         <td th:text="${row.name}"></td>
                         <td th:text="${row.dateOfBirth}"></td>
                         <td th:text="${row.idCard}"></td>

@@ -141,7 +141,7 @@
             </tr>
 
             <tr th:each="row, number : ${contracts}">
-                <td th:text="${number.count}"></td>
+                <td th:text="${number.count + 6 * contracts.number}"></td>
                 <td th:text="${row.facilities.name}"></td>
                 <td th:text="${row.customers.name}"></td>
                 <td th:text="${row.startDate}"></td>

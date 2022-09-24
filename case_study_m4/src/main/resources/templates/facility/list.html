@@ -151,7 +151,7 @@
             </tr>
 
             <tr th:each="row, number : ${facilities}">
-                <td th:text="${number.count}"></td>
+                <td th:text="${number.count + 6 * facilities.number}"></td>
                 <td th:text="${row.name}"></td>
                 <td th:text="${row.area}"></td>
                 <td th:text="${row.cost}"></td>

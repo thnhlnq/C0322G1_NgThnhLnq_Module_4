@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="gradient-custom" style="text-align: center">
+        <form th:action="@{/tintuc/create}" th:object="${tinTucs}" method="POST">
+            <h2>Thêm Tin</h2>
+            <table style="display: inline-grid">
+                <tr>
+                    <td>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text">Tiêu Đề</span>
+                            <input required style="width: 100%" type="text" class="form-control" th:field="*{tieuDe}"
+                                   placeholder="Nhập Tiêu Đề"><br>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text">Danh Mục</span>
+                            <label style="width: 100%">
+                                <select class="form-select" th:field="*{danhMuc}">
+                                    <option th:each="item : ${danhMucs}" th:value="${item.id}"
+                                            th:text="${item.name}"></option>
+                                </select>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text">Nội Dung</span>
+                            <label>
+                                <textarea required class="form-control" th:field="*{noiDung}" th:width="30"
+                                          th:height="5"></textarea>
+                            </label><br>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text">Ngày Đăng Tin</span>
+                            <input required type="date" class="form-control" th:field="*{ngayDang}"><br>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text">Phóng Viên</span>
+                            <input required type="text" class="form-control" th:field="*{phongVien}"
+                                   placeholder="Nhập Tên Phóng Viên"><br>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <div class="col-12">
+                        <td>
+                            <div class="vstack">
+                                <button type="submit" class="btn btn-outline-secondary" value="Thêm Mới">Thêm Mới
+                                </button>
+                                <a class="btn btn-outline-secondary" href="/tintuc">Quay Lại</a>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>

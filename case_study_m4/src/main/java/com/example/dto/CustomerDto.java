@@ -1,7 +1,6 @@
 package com.example.dto;
 
 import com.example.model.customer.CustomerType;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;

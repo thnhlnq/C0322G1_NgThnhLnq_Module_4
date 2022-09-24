@@ -149,7 +149,7 @@
             </tr>
 
             <tr th:each="row, number : ${customers}">
-                <td th:text="${number.count}"></td>
+                <td th:text="${number.count + 6 * customers.number}"></td>
                 <td th:text="${row.name}"></td>
                 <td th:text="${row.dateOfBirth}"></td>
                 <td th:switch="${row.gender}">
